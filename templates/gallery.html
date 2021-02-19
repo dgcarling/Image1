@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<!-- <div class="slider">
+    <ul class="slides">
+        <li>
+            <img src="{% static 'images/mountain.jpg' %}" alt="Django Photo Gallery" class="opaque">
+            <div class="caption center-align">
+                <h1>
+                    Django Photo Gallery Sample<br/>
+                    <small class="light text-lighten-3 hide-on-small-only">Build photo gallery in seconds.</small>
+                </h1>
+                
+            </div>
+        </li>
+        <li>
+            <img src="{% static 'images/lake.jpg' %}" alt="Django Photo Gallery" class="opaque">
+            <div class="caption left-align">
+                <h1>
+                    Designed to be mobile<br />
+                    <small class="light text-lighten-3 hide-on-small-only">Optimized images to load on every device.</small>
+                </h1>
+            </div>
+        </li>
+    </ul>
+</div> -->
+<div class="container">
+    <div class="row">
+        {% for album in albums %}
+
+        <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="card dpg-album-card">
+                <div class="card-img-top">
+                    <img class="dpg-album-card-image img-fluid rounded" src="{{ album.thumb.url }}" alt="{{ album.title }}"/>
+                </div>
+                <div class="card-body">
+                    <span class="card-title">{{ album.title }}</span>
+                    <p>{{ album.description|truncatechars:120 }}</p>
+                </div>
+                <div class="card-body">
+                    <a href="{% url 'album' album.slug %}" class="card-link">More Images</a>
+                </div>
+            </div>
+        </div>
+
+        {% endfor %}
+
+    </div>
+</div>
+
+<!-- class= "rounded img-fluid" -->
+
+<!--
+<div class="pagination center">
+    <span class="step-links">
+        {% if albums.has_previous %}
+        <a href="?page={{ albums.previous_page_number }}" class="waves-effect waves-light btn btn-large">Previous</a>
+        {% endif %}
+
+        {% if albums.has_next %}
+        <a href="?page={{ albums.next_page_number }}" class="waves-effect waves-light btn btn-large">Next</a>
+        {% endif %}
+    </span>
+</div>
+-->
+{% endblock %}
