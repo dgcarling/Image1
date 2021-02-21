@@ -8,6 +8,8 @@ django = "*"
 pillow = "*"
 django-imagekit = "*"
 django-crispy-forms = "*"
+environs = {extras = ["django"], version = "*"}
+whitenoise = "*"
 
 [dev-packages]
 

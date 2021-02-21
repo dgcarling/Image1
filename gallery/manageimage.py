@@ -99,7 +99,6 @@ def _derationalize(rational):
 
 def _frombytes(isBytes):
     if type(isBytes) is bytes:
-        print ("convert from bytes")
         return isBytes.decode('utf-16').rstrip('\x00')
     else:
         return str(isBytes)
