@@ -1,0 +1,7 @@
+django
+Pillow
+whitenoise
+django-crispy-forms
+django-imagekit
+environs[django]
+psycopg2
